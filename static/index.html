@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Crypto News Monitor</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0f1117;
+      --surface: #1a1d27;
+      --surface2: #22263a;
+      --border: #2e3248;
+      --text: #e2e4f0;
+      --text-muted: #7b8098;
+      --accent: #4f8ef7;
+      --bullish: #2ecc71;
+      --bearish: #e74c3c;
+      --neutral: #f39c12;
+      --radius: 8px;
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    header h1 { font-size: 18px; font-weight: 600; }
+    header span { color: var(--text-muted); font-size: 12px; }
+
+    .trigger-btn {
+      margin-left: auto;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: var(--radius);
+      padding: 6px 14px;
+      font-size: 13px;
+      cursor: pointer;
+    }
+    .trigger-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    .ticker-bar {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      overflow: hidden;
+      height: 32px;
+      display: flex;
+      align-items: center;
+    }
+    .ticker-track {
+      display: flex;
+      gap: 0;
+      white-space: nowrap;
+      will-change: transform;
+      animation: ticker-scroll 40s linear infinite;
+    }
+    .ticker-bar:hover .ticker-track { animation-play-state: paused; }
+    @keyframes ticker-scroll {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .ticker-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 0 20px;
+      font-size: 12px;
+      border-right: 1px solid var(--border);
+    }
+    .ticker-symbol { font-weight: 700; color: var(--accent); }
+    .ticker-price  { color: var(--text); }
+    .ticker-up   { color: var(--bullish); }
+    .ticker-down { color: var(--bearish); }
+
+    .layout {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 24px 16px;
+    }
+
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .filters select, .filters input[type="text"] {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text);
+      border-radius: var(--radius);
+      padding: 6px 10px;
+      font-size: 13px;
+      outline: none;
+    }
+    .filters select:focus, .filters input[type="text"]:focus {
+      border-color: var(--accent);
+    }
+
+    .filters label {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--text-muted);
+      font-size: 13px;
+      cursor: pointer;
+    }
+
+    .stats {
+      color: var(--text-muted);
+      font-size: 12px;
+      margin-bottom: 14px;
+    }
+
+    .news-list { display: flex; flex-direction: column; gap: 10px; }
+
+    .news-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 8px;
+      transition: border-color 0.15s;
+    }
+    .news-card:hover { border-color: var(--accent); }
+
+    .card-title {
+      font-size: 15px;
+      font-weight: 500;
+      margin-bottom: 6px;
+    }
+    .card-title a {
+      color: var(--text);
+      text-decoration: none;
+    }
+    .card-title a:hover { color: var(--accent); }
+
+    .card-meta {
+      color: var(--text-muted);
+      font-size: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .card-badges {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 6px;
+      min-width: 80px;
+    }
+
+    .badge {
+      display: inline-block;
+      border-radius: 4px;
+      padding: 2px 8px;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+    }
+    .badge-Bullish { background: rgba(46,204,113,.15); color: var(--bullish); }
+    .badge-Bearish { background: rgba(231,76,60,.15); color: var(--bearish); }
+    .badge-Neutral  { background: rgba(243,156,18,.15); color: var(--neutral); }
+
+    .score { font-size: 11px; color: var(--text-muted); }
+
+    .coin {
+      font-size: 11px;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 2px 7px;
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .load-more { margin-top: 20px; text-align: center; }
+    .load-more button {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text);
+      border-radius: var(--radius);
+      padding: 8px 28px;
+      font-size: 13px;
+      cursor: pointer;
+    }
+    .load-more button:hover { border-color: var(--accent); color: var(--accent); }
+    .load-more button:disabled { opacity: 0.4; cursor: not-allowed; }
+
+    .empty {
+      text-align: center;
+      padding: 60px 0;
+      color: var(--text-muted);
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 10px 16px;
+      font-size: 13px;
+      opacity: 0;
+      transition: opacity 0.2s;
+      pointer-events: none;
+    }
+    .toast.show { opacity: 1; }
+    .toast.error { border-color: var(--bearish); color: var(--bearish); }
+
+    .qa-section {
+      margin-top: 40px;
+      border-top: 1px solid var(--border);
+      padding-top: 24px;
+    }
+    .qa-section h2 { font-size: 15px; font-weight: 600; margin-bottom: 14px; }
+
+    .qa-input-row {
+      display: flex;
+      gap: 8px;
+    }
+    .qa-input-row input {
+      flex: 1;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text);
+      border-radius: var(--radius);
+      padding: 8px 12px;
+      font-size: 13px;
+      outline: none;
+    }
+    .qa-input-row input:focus { border-color: var(--accent); }
+    .qa-input-row button {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: var(--radius);
+      padding: 8px 18px;
+      font-size: 13px;
+      cursor: pointer;
+    }
+    .qa-input-row button:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    .qa-result {
+      margin-top: 16px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px;
+      display: none;
+    }
+    .qa-answer { line-height: 1.7; white-space: pre-wrap; }
+    .qa-sources { margin-top: 12px; }
+    .qa-sources-label { font-size: 11px; color: var(--text-muted); margin-bottom: 6px; }
+    .qa-sources a {
+      display: inline-block;
+      font-size: 12px;
+      color: var(--accent);
+      margin-right: 10px;
+      text-decoration: none;
+    }
+    .qa-sources a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>&#128308; Crypto News Monitor</h1>
+  <span id="last-updated"></span>
+  <button class="trigger-btn" id="trigger-btn" onclick="triggerMonitor()">&#8635; Fetch News</button>
+</header>
+
+<div class="ticker-bar" id="ticker-bar" style="display:none">
+  <div class="ticker-track" id="ticker-track"></div>
+</div>
+
+<div class="layout">
+  <div class="filters">
+    <select id="filter-sentiment" onchange="resetAndLoad()">
+      <option value="">All Sentiment</option>
+      <option value="Bullish">Bullish</option>
+      <option value="Bearish">Bearish</option>
+      <option value="Neutral">Neutral</option>
+    </select>
+    <select id="filter-category" onchange="resetAndLoad()">
+      <option value="">All Categories</option>
+      <option value="regulation">Regulation</option>
+      <option value="market">Market</option>
+      <option value="technical">Technical</option>
+      <option value="other">Other</option>
+    </select>
+    <input id="filter-coin" type="text" placeholder="Coin (e.g. BTC)" maxlength="10"
+           oninput="debounceLoad()" style="width: 130px;" />
+    <label>
+      <input type="checkbox" id="filter-relevant" onchange="resetAndLoad()" />
+      Relevant only
+    </label>
+  </div>
+
+  <div class="stats" id="stats"></div>
+  <div class="news-list" id="news-list"></div>
+  <div class="load-more" id="load-more" style="display:none">
+    <button id="load-more-btn" onclick="loadMore()">Load more</button>
+  </div>
+  <div class="empty" id="empty" style="display:none">No articles found.</div>
+
+  <div class="qa-section">
+    <h2>&#129302; Ask about the news</h2>
+    <div class="qa-input-row">
+      <input id="qa-input" type="text" placeholder="e.g. What are the latest SEC crypto regulations?" maxlength="300"
+             onkeydown="if(event.key==='Enter') askQuestion()" />
+      <button id="qa-btn" onclick="askQuestion()">Ask</button>
+    </div>
+    <div class="qa-result" id="qa-result">
+      <div class="qa-answer" id="qa-answer"></div>
+      <div class="qa-sources" id="qa-sources"></div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+<script src="app.js?v=2"></script>
+</body>
+</html>

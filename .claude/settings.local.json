@@ -1,0 +1,32 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(venv/bin/python agents/monitor_agent.py)",
+      "mcp__sqlite__query"
+    ]
+  },
+  "mcpServers": {
+    "sqlite": {
+      "type": "stdio",
+      "command": "uvx",
+      "args": [
+        "mcp-server-sqlite",
+        "--db-path",
+        "/Users/lydiak/Projects/small_project/news.db"
+      ]
+    }
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Write|Edit|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/Users/lydiak/Projects/small_project/.claude/hooks/check_write_path.sh"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,269 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - heading "🔴 Crypto News Monitor" [level=1] [ref=e3]
+    - generic [ref=e4]: Updated 下午2:47:23
+    - button "↻ Fetch News" [ref=e5] [cursor=pointer]
+  - generic [ref=e6]:
+    - generic [ref=e7]:
+      - combobox [ref=e8]:
+        - option "All Sentiment" [selected]
+        - option "Bullish"
+        - option "Bearish"
+        - option "Neutral"
+      - combobox [ref=e9]:
+        - option "All Categories" [selected]
+        - option "Regulation"
+        - option "Market"
+        - option "Technical"
+        - option "Other"
+      - textbox "Coin (e.g. BTC)" [ref=e10]
+      - generic [ref=e11] [cursor=pointer]:
+        - checkbox "Relevant only" [ref=e12]
+        - text: Relevant only
+    - generic [ref=e13]: Showing 20 of 74 articles
+    - generic [ref=e14]:
+      - generic [ref=e15]:
+        - generic [ref=e16]:
+          - link "Ethereum’s Vitalik Buterin Warns Against AI Agent Security Risks, Shares His Private LLM Stack – Bitcoin News" [ref=e18] [cursor=pointer]:
+            - /url: https://bitcoinethereumnews.com/bitcoin/ethereums-vitalik-buterin-warns-against-ai-agent-security-risks-shares-his-private-llm-stack-bitcoin-news/
+          - generic [ref=e19]:
+            - generic [ref=e20]: bitcoinethereumnews
+            - generic [ref=e21]: Apr 4, 06:44 PM
+            - generic [ref=e22]: technical
+        - generic [ref=e23]:
+          - generic [ref=e24]: Neutral
+          - generic [ref=e25]: ETH
+          - generic [ref=e26]: Score 8/10
+      - generic [ref=e27]:
+        - generic [ref=e28]:
+          - link "Ethereum’s Vitalik Buterin Warns Against AI Agent Security Risks, Shares His Private LLM Stack" [ref=e30] [cursor=pointer]:
+            - /url: https://news.bitcoin.com/ethereums-vitalik-buterin-warns-against-ai-agent-security-risks-shares-his-private-llm-stack/
+          - generic [ref=e31]:
+            - generic [ref=e32]: bitcoin
+            - generic [ref=e33]: Apr 4, 06:41 PM
+            - generic [ref=e34]: technical
+        - generic [ref=e35]:
+          - generic [ref=e36]: Neutral
+          - generic [ref=e37]: ETH
+          - generic [ref=e38]: Score 7/10
+      - generic [ref=e39]:
+        - generic [ref=e40]:
+          - link "Bitcoin’s Road to $300K Could First Crash Through $30K" [ref=e42] [cursor=pointer]:
+            - /url: https://bitcoinethereumnews.com/bitcoin/bitcoins-road-to-300k-could-first-crash-through-30k/
+          - generic [ref=e43]:
+            - generic [ref=e44]: bitcoinethereumnews
+            - generic [ref=e45]: Apr 4, 06:35 PM
+            - generic [ref=e46]: market
+        - generic [ref=e47]:
+          - generic [ref=e48]: Neutral
+          - generic [ref=e49]: BTC
+          - generic [ref=e50]: Score 8/10
+      - generic [ref=e51]:
+        - generic [ref=e52]:
+          - link "Ethereum Foundation Nears 70,000 Staked ETH Target — Details" [ref=e54] [cursor=pointer]:
+            - /url: https://bitcoinethereumnews.com/ethereum/ethereum-foundation-nears-70000-staked-eth-target-details/
+          - generic [ref=e55]:
+            - generic [ref=e56]: bitcoinethereumnews
+            - generic [ref=e57]: Apr 4, 06:32 PM
+            - generic [ref=e58]: market
+        - generic [ref=e59]:
+          - generic [ref=e60]: Bullish
+          - generic [ref=e61]: ETH
+          - generic [ref=e62]: Score 9/10
+      - generic [ref=e63]:
+        - generic [ref=e64]:
+          - 'link "Tether Froze $3.3B: But 80% of Illicit Crypto Still Escapes" [ref=e66] [cursor=pointer]':
+            - /url: https://www.livebitcoinnews.com/tether-froze-3-3b-but-80-of-illicit-crypto-still-escapes/
+          - generic [ref=e67]:
+            - generic [ref=e68]: livebitcoinnews
+            - generic [ref=e69]: Apr 4, 06:30 PM
+            - generic [ref=e70]: regulation
+        - generic [ref=e71]:
+          - generic [ref=e72]: Bearish
+          - generic [ref=e73]: USDT
+          - generic [ref=e74]: Score 9/10
+      - generic [ref=e75]:
+        - generic [ref=e76]:
+          - link "La Fundación Ethereum Apostó Más De 45.000 Eth En Un Solo Día" [ref=e78] [cursor=pointer]:
+            - /url: https://www.newsbtc.com/es/news/ethereum/ethereum-foundation-nears-70000-staked-eth-target-details/
+          - generic [ref=e79]:
+            - generic [ref=e80]: newsbtc
+            - generic [ref=e81]: Apr 4, 06:30 PM
+            - generic [ref=e82]: market
+        - generic [ref=e83]:
+          - generic [ref=e84]: Bullish
+          - generic [ref=e85]: ETH
+          - generic [ref=e86]: Score 9/10
+      - generic [ref=e87]:
+        - generic [ref=e88]:
+          - link "Ethereum Foundation Nears 70,000 Staked ETH Target — Details" [ref=e90] [cursor=pointer]:
+            - /url: https://www.newsbtc.com/news/ethereum/ethereum-foundation-nears-70000-staked-eth-target-details/
+          - generic [ref=e91]:
+            - generic [ref=e92]: newsbtc
+            - generic [ref=e93]: Apr 4, 06:30 PM
+            - generic [ref=e94]: market
+        - generic [ref=e95]:
+          - generic [ref=e96]: Bullish
+          - generic [ref=e97]: ETH
+          - generic [ref=e98]: Score 9/10
+      - generic [ref=e99]:
+        - generic [ref=e100]:
+          - 'link "Crypto News: Dogecoin Price Prediction Stalls as X Money Launches Without DOGE and Memecore Flips SHIB, Pepeto’s Exchange Does What Elon Musk Has Not" [ref=e102] [cursor=pointer]':
+            - /url: https://captainaltcoin.com/crypto-news-dogecoin-price-prediction-stalls-as-x-money-launches-without-doge-and-memecore-flips-shib-pepetos-exchange-does-what-elon-musk-has-not/
+          - generic [ref=e103]:
+            - generic [ref=e104]: captainaltcoin
+            - generic [ref=e105]: Apr 4, 06:30 PM
+            - generic [ref=e106]: market
+        - generic [ref=e107]:
+          - generic [ref=e108]: Bearish
+          - generic [ref=e109]: DOGE
+          - generic [ref=e110]: Score 9/10
+      - generic [ref=e111]:
+        - generic [ref=e112]:
+          - 'link "Jimmy Song: Conservative Node Software Essential for Bitcoin" [ref=e114] [cursor=pointer]':
+            - /url: https://bitcoinethereumnews.com/bitcoin/jimmy-song-conservative-node-software-essential-for-bitcoin/
+          - generic [ref=e115]:
+            - generic [ref=e116]: bitcoinethereumnews
+            - generic [ref=e117]: Apr 4, 06:21 PM
+            - generic [ref=e118]: technical
+        - generic [ref=e119]:
+          - generic [ref=e120]: Bullish
+          - generic [ref=e121]: BTC
+          - generic [ref=e122]: Score 8/10
+      - generic [ref=e123]:
+        - generic [ref=e124]:
+          - 'link "XRP Price Prediction: Can XRP Price Ever Reach The $100 Dream ? While Pepeto Delivers the True 150x Entry" [ref=e126] [cursor=pointer]':
+            - /url: https://blockonomi.com/xrp-price-prediction-can-xrp-price-ever-reach-the-100-dream-while-pepeto-delivers-the-true-150x-entry/
+          - generic [ref=e127]:
+            - generic [ref=e128]: blockonomi
+            - generic [ref=e129]: Apr 4, 06:20 PM
+            - generic [ref=e130]: market
+        - generic [ref=e131]:
+          - generic [ref=e132]: Neutral
+          - generic [ref=e133]: XRP
+          - generic [ref=e134]: Score 3/10
+      - generic [ref=e135]:
+        - generic [ref=e136]:
+          - 'link "Jimmy Song: Conservative Node Software Essential for Bitcoin" [ref=e138] [cursor=pointer]':
+            - /url: https://en.coinotag.com/jimmy-song-conservative-node-software-essential-for-bitcoin
+          - generic [ref=e139]:
+            - generic [ref=e140]: coinotag
+            - generic [ref=e141]: Apr 4, 06:20 PM
+            - generic [ref=e142]: technical
+        - generic [ref=e143]:
+          - generic [ref=e144]: Neutral
+          - generic [ref=e145]: BTC
+          - generic [ref=e146]: Score 8/10
+      - generic [ref=e147]:
+        - generic [ref=e148]:
+          - link "$12T Charles Schwab to Launch ‘Schwab Crypto’ for Bitcoin and Ethereum Trading" [ref=e150] [cursor=pointer]:
+            - /url: https://bitcoinethereumnews.com/bitcoin/12t-charles-schwab-to-launch-schwab-crypto-for-bitcoin-and-ethereum-trading/
+          - generic [ref=e151]:
+            - generic [ref=e152]: bitcoinethereumnews
+            - generic [ref=e153]: Apr 3, 06:20 PM
+            - generic [ref=e154]: market
+        - generic [ref=e155]:
+          - generic [ref=e156]: Bullish
+          - generic [ref=e157]: BTC, ETH
+          - generic [ref=e158]: Score 9/10
+      - generic [ref=e159]:
+        - generic [ref=e160]:
+          - link "Circle Under Fire as ZachXBT Flags $420M USDC Cases" [ref=e162] [cursor=pointer]:
+            - /url: https://blockonomi.com/circle-under-fire-as-zachxbt-flags-420m-usdc-cases/
+          - generic [ref=e163]:
+            - generic [ref=e164]: blockonomi
+            - generic [ref=e165]: Apr 3, 05:33 PM
+            - generic [ref=e166]: regulation
+        - generic [ref=e167]:
+          - generic [ref=e168]: Bearish
+          - generic [ref=e169]: USDC
+          - generic [ref=e170]: Score 9/10
+      - generic [ref=e171]:
+        - generic [ref=e172]:
+          - link "Bitcoin slips after failed Iran ceasefire talks dampen market sentiment" [ref=e174] [cursor=pointer]:
+            - /url: https://en.coin-turk.com/bitcoin-slips-after-failed-iran-ceasefire-talks-dampen-market-sentiment/
+          - generic [ref=e175]:
+            - generic [ref=e176]: cointurk
+            - generic [ref=e177]: Apr 3, 05:32 PM
+            - generic [ref=e178]: market
+        - generic [ref=e179]:
+          - generic [ref=e180]: Bearish
+          - generic [ref=e181]: BTC
+          - generic [ref=e182]: Score 9/10
+      - generic [ref=e183]:
+        - generic [ref=e184]:
+          - 'link "EXCLUSIVE: ''Coexistence... Then Convergence'': Expert Explains How Tokenization Could Reshape ETFs Over Time" [ref=e186] [cursor=pointer]':
+            - /url: https://www.benzinga.com/etfs/specialty-etfs/26/04/51646502/exclusive-coexistence-then-convergence-expert-explains-how-tokenization-could-reshape-etfs-ov
+          - generic [ref=e187]:
+            - generic [ref=e188]: benzinga
+            - generic [ref=e189]: Apr 3, 05:31 PM
+            - generic [ref=e190]: market
+        - generic [ref=e191]:
+          - generic [ref=e192]: Bullish
+          - generic [ref=e193]: Score 9/10
+      - generic [ref=e194]:
+        - generic [ref=e195]:
+          - link "ETH liquidation heatmap flags near‐$2,000 ‘trapdoor’ for leveraged longs" [ref=e197] [cursor=pointer]:
+            - /url: https://crypto.news/eth-liquidation-heatmap-flags-near-2000-trapdoor-for-leveraged-longs/
+          - generic [ref=e198]:
+            - generic [ref=e199]: cryptonewsdot
+            - generic [ref=e200]: Apr 3, 05:30 PM
+            - generic [ref=e201]: market
+        - generic [ref=e202]:
+          - generic [ref=e203]: Bearish
+          - generic [ref=e204]: ETH
+          - generic [ref=e205]: Score 9/10
+      - generic [ref=e206]:
+        - generic [ref=e207]:
+          - link "Crypto Markets Eye $2.1B Options Expiry as Bitcoin Price Holds Near $68K" [ref=e209] [cursor=pointer]:
+            - /url: https://www.analyticsinsight.net/news/crypto-markets-eye-21b-options-expiry-as-bitcoin-price-holds-near-68k
+          - generic [ref=e210]:
+            - generic [ref=e211]: analyticsinsight
+            - generic [ref=e212]: Apr 3, 05:30 PM
+            - generic [ref=e213]: market
+        - generic [ref=e214]:
+          - generic [ref=e215]: Neutral
+          - generic [ref=e216]: BTC
+          - generic [ref=e217]: Score 9/10
+      - generic [ref=e218]:
+        - generic [ref=e219]:
+          - 'link "Ethereum Price Prediction: T. Rowe Price Files First Actively Managed Crypto ETF While Pepeto Targets 100x to 300x Before Listing" [ref=e221] [cursor=pointer]':
+            - /url: https://blockonomi.com/ethereum-price-prediction-t-rowe-price-files-first-actively-managed-crypto-etf-while-pepeto-targets-100x-to-300x-before-listing/
+          - generic [ref=e222]:
+            - generic [ref=e223]: blockonomi
+            - generic [ref=e224]: Apr 3, 05:27 PM
+            - generic [ref=e225]: regulation
+        - generic [ref=e226]:
+          - generic [ref=e227]: Bullish
+          - generic [ref=e228]: ETH
+          - generic [ref=e229]: Score 9/10
+      - generic [ref=e230]:
+        - generic [ref=e231]:
+          - 'link "Top Crypto Gainers: BlockDAG, Ethereum, XRP & Chainlink Signal Strong Growth Potential" [ref=e233] [cursor=pointer]':
+            - /url: https://bitcoinethereumnews.com/ethereum/top-crypto-gainers-blockdag-ethereum-xrp-chainlink-signal-strong-growth-potential/
+          - generic [ref=e234]:
+            - generic [ref=e235]: bitcoinethereumnews
+            - generic [ref=e236]: Apr 3, 05:23 PM
+            - generic [ref=e237]: market
+        - generic [ref=e238]:
+          - generic [ref=e239]: Bullish
+          - generic [ref=e240]: BLOCKDAG, ETH, XRP, LINK
+          - generic [ref=e241]: Score 10/10
+      - generic [ref=e242]:
+        - generic [ref=e243]:
+          - link "Ripple CEO Brad Garlinghouse Highlights $13T XRP Ledger Opportunity" [ref=e245] [cursor=pointer]:
+            - /url: https://blockonomi.com/ripple-ceo-brad-garlinghouse-highlights-13t-xrp-ledger-opportunity/
+          - generic [ref=e246]:
+            - generic [ref=e247]: blockonomi
+            - generic [ref=e248]: Apr 3, 05:22 PM
+            - generic [ref=e249]: market
+        - generic [ref=e250]:
+          - generic [ref=e251]: Bullish
+          - generic [ref=e252]: XRP
+          - generic [ref=e253]: Score 9/10
+    - button "Load more" [ref=e255] [cursor=pointer]
+    - generic [ref=e256]:
+      - heading "🤖 Ask about the news" [level=2] [ref=e257]
+      - generic [ref=e258]:
+        - textbox "e.g. What are the latest SEC crypto regulations?" [ref=e259]
+        - button "Ask" [ref=e260] [cursor=pointer]
