@@ -1,8 +1,12 @@
 #!/bin/bash
+# Resolve project dir from this script's location: .claude/hooks/ → project root
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PROJECT_DIR="$(cd "$SCRIPT_DIR/../.." && pwd)"
+
 python3 -c "
 import json, sys, os
 
-PROJECT_DIR = '/Users/lydiak/Projects/small_project'
+PROJECT_DIR = '$PROJECT_DIR'
 
 try:
     data = json.load(sys.stdin)

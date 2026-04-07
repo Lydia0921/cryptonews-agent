@@ -443,7 +443,7 @@ function hRule(slide, y) {
       title: "PreToolUse Hook — 寫入路徑保護",
       color: BEARISH,
       problem: "Claude 可能誤修改專案目錄外的系統檔案",
-      solution: "攔截 Write/Edit/MultiEdit，驗證路徑在 /Users/lydiak/Projects/small_project 內，否則 exit 2 阻擋",
+      solution: "攔截 Write/Edit/MultiEdit，驗證路徑在專案目錄內，否則 exit 2 阻擋",
       result: "所有檔案寫入受到邊界控制，誤操作前即時警告",
     },
     {

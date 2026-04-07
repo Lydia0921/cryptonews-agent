@@ -1,5 +1,6 @@
 import logging
 import os
+import threading
 from contextlib import asynccontextmanager
 
 from apscheduler.schedulers.background import BackgroundScheduler
@@ -36,12 +37,15 @@ async def lifespan(app: FastAPI):
     )
     scheduler.start()
 
-    logger.info("Running initial news fetch on startup...")
-    stats = monitor_agent.run(DEFAULT_KEYWORDS)
-    logger.info("Initial fetch done: %s", stats)
-
     next_run = scheduler.get_job("news_monitor").next_run_time
     logger.info("Next scheduled run: %s", next_run)
+
+    def _initial_fetch():
+        logger.info("Running initial news fetch in background...")
+        stats = monitor_agent.run(DEFAULT_KEYWORDS)
+        logger.info("Initial fetch done: %s", stats)
+
+    threading.Thread(target=_initial_fetch, daemon=True).start()
 
     yield
 
